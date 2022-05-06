@@ -11,7 +11,6 @@ const WeatherItem: FC<IWeatherState> = ({ weather, loading, error }) => {
     return <h1>{error}</h1>
   }
 
-
   const weatherIconSrc = weather ? `http://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png` : undefined
 
   return (

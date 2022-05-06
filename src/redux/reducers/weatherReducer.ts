@@ -9,7 +9,7 @@ const initialState: IWeatherState = {
 export const weatherReducer = (state = initialState, action: WeatherAction): IWeatherState => {
   switch (action.type) {
     case WeatherActionTypes.FETCH_WEATHER: {
-      return { ...state, loading: true }
+      return { ...state, loading: true, error: null }
     }
     case WeatherActionTypes.FETCH_WEATHER_SUCCESS: {
       return { ...state, loading: false, weather: action.payload }

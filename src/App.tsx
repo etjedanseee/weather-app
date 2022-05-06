@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Search from "./components/Search";
 import WeatherItem from "./components/WeatherItem";
 import { useActions } from "./hooks/useActions";
 import { useTypedSelector } from "./hooks/useTypedSelector";
@@ -15,7 +16,12 @@ function App() {
 
   return (
     <>
-      <WeatherItem weather={weather} loading={loading} error={error} />
+      <Search />
+      <WeatherItem
+        weather={weather}
+        loading={loading}
+        error={error}
+      />
     </>
   );
 }
