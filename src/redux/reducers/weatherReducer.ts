@@ -1,7 +1,7 @@
 import { IWeatherState, WeatherAction, WeatherActionTypes } from './../types';
 
 const initialState: IWeatherState = {
-  weather: null,
+  weathers: [],
   loading: false,
   error: null
 }
@@ -12,7 +12,13 @@ export const weatherReducer = (state = initialState, action: WeatherAction): IWe
       return { ...state, loading: true, error: null }
     }
     case WeatherActionTypes.FETCH_WEATHER_SUCCESS: {
-      return { ...state, loading: false, weather: action.payload }
+      return {
+        ...state, loading: false,
+        weathers: [
+          ...state.weathers,
+          action.payload
+        ]
+      }
     }
     case WeatherActionTypes.FETCH_WEATHER_ERROR: {
       return { ...state, loading: false, error: action.payload }

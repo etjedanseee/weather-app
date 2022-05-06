@@ -20,7 +20,7 @@ interface fetchWeatherErrorAction {
 }
 
 export interface IWeatherState {
-  weather: IWeather | null,
+  weathers: IWeather[],
   loading: boolean,
   error: null | string
 }

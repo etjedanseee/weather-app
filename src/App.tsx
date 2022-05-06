@@ -5,20 +5,20 @@ import { useActions } from "./hooks/useActions";
 import { useTypedSelector } from "./hooks/useTypedSelector";
 
 function App() {
-  const { weather, loading, error } = useTypedSelector(state => state.weather)
+  const { weathers, loading, error } = useTypedSelector(state => state.weather)
   const { fetchWeather } = useActions()
 
   // console.log('weather', weather);
 
   useEffect(() => {
-    fetchWeather('Moscow')
+    fetchWeather('London')
   }, [])
 
   return (
     <>
       <Search />
       <WeatherItem
-        weather={weather}
+        weathers={weathers}
         loading={loading}
         error={error}
       />
