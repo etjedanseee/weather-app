@@ -1,5 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react"
 import { useActions } from "../hooks/useActions"
+import s from '../styles/search.module.scss'
+
 
 const Search = () => {
   const [search, setSearch] = useState('')
@@ -13,9 +15,7 @@ const Search = () => {
   }
 
   const onBlur = () => {
-    if (!search) {
-      setError('Поле обязательное!')
-    }
+    setError(null)
   }
 
   const onSubmit = (e: FormEvent) => {
@@ -24,22 +24,23 @@ const Search = () => {
       fetchWeather(search)
       setSearch('')
     } else {
-      setError(null)
+      setError('Поле обязательное!')
     }
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className={s.cnt}>
       <input
         value={search}
         onChange={onSearchChange}
+        className={s.search}
         type="text"
         placeholder="Search for a city"
         onBlur={onBlur}
       />
-      {error ? error : null}
+      {error ? <div className={s.error}>{error}</div> : null}
 
-      <button>submit</button>
+      <button className={s.btn}>submit</button>
     </form>
   )
 }

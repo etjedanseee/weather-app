@@ -6,10 +6,19 @@ export interface IWeather {
     icon: string
   }],
   wind: {
-    speed: number
+    speed: number,
+    deg: number
   },
+  clouds: {
+    all: number
+  }
   main: {
-    temp: number
+    temp: number,
+    temp_min: number,
+    temp_max: number,
+    pressure: number,
+    feels_like: number,
+    humidity: number,
   }
   id: number,
   name: string,

@@ -19,3 +19,7 @@ export const fetchWeather = (q: string = 'London') => {
   }
 }
 
+export const closeCity = (id: number) => {
+  return { type: WeatherActionTypes.CLOSE_CITY, payload: id }
+}
+
